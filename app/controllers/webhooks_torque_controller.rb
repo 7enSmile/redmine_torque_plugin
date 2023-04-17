@@ -16,6 +16,7 @@ class WebhooksTorqueController < ApplicationController
     issue.priority = IssuePriority.find_by_name("Normal")
     issue.author = User.find_by_id(1)
     issue.tracker = Tracker.find_by_name("Support")
+    issue.start_date = data["time"][0,10]
     issue.save
   
 
