@@ -1,6 +1,0 @@
-<%= 'Project: ' %>
-<%= select_tag 'settings[torque_project]', options_for_select(Project.all.collect{ |u| [u.name, u.id] }, selected: if Setting.plugin_redmine_torque_plugin then settings['torque_project'] else 1 end) %>
-<br>
-<%= 'Assignee: ' %>
-<%= select_tag 'settings[torque_user_assignee]', options_for_select(User.all.collect{ |u| [u.lastname, u.id] }, selected: if Setting.plugin_redmine_torque_plugin then settings['torque_user_assignee'] else 1 end) %>
-

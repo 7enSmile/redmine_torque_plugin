@@ -5,5 +5,5 @@ Redmine::Plugin.register :redmine_torque_plugin do
   version '0.0.1'
   url 'https://github.com/7enSmile/redmine_torque_plugin'
   author_url 'https://github.com/7enSmile'
-  settings :partial => 'settings/settings'
+  settings :partial => 'settings/torque_settings'
 end

@@ -3,8 +3,8 @@ class WebhooksTorqueController < ApplicationController
   def init
     data = JSON.parse(request.body.read)
     issue = Issue.new
-    issue.project = Project.find_by_id(Setting.plugin_redmine_torque_plugin[:torque_project])
-    issue.assigned_to = User.find_by_id(Setting.plugin_redmine_torque_plugin[:torque_user_assignee])
+    issue.project = Project.find_by_id(Setting.plugin_redmine_torque_plugin[:project])
+    issue.assigned_to = User.find_by_id(Setting.plugin_redmine_torque_plugin[:user_assignee])
     issue.subject = data["job_id"]
     issue.description = "job info\n
                          job_id: #{data["job_id"]} \n
@@ -18,6 +18,7 @@ class WebhooksTorqueController < ApplicationController
     issue.tracker = Tracker.find_by_name("Support")
     issue.start_date = data["time"][0,10]
     issue.save
+    head :ok
   
 
 
